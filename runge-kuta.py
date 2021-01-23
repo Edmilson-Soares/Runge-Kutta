@@ -38,7 +38,7 @@ def rungeKutta1(x0, y0, x, h):
     plt.legend(['Runge-Kutka 1ª ordem','Função Original','Função erro'])
     plt.axis([0,2,-0.2,2])
     plt.grid(True)
-    plt.title("Solução da $I'=-1*(1*(1/2))*np.exp(-1*(1/2)*t) , I(0)=1$ r=1, c=1")
+    plt.title("Solução da $I'=-1*(1*(1/2))*np.exp(-1*(1/2)*t) , I(0)=1$ r=1, l=2")
     plt.show()
 
 def rungeKutta2(x0, y0, x, h):
@@ -55,19 +55,19 @@ def rungeKutta2(x0, y0, x, h):
     soma=erro(Y1,Y)
     print("Erro=",soma," com h=0.001 soma dos erro=",soma/len(e1),"Desvio padrão=",stdev(e1))#Erro quadrático médio
     plt.plot(X,Y,'b-',X,Y1,'r-',X,e1,'g-')
-    plt.legend(['Runge-Kutka 2ª ordem','Função Original','Função erro'])
+    plt.legend(['Runge-Kutka 2ª ordem','Função da 1ª derivada(como a função exata)','Função erro'])
     plt.axis([0,2,-2,2])
     plt.grid(True)
-    plt.title("Solução da $I''=(1*(1/4))*np.exp(-1*(1/2)*t) , I(0)=1$ r=1, c=1")
+    plt.title("Solução da $I''=(1*(1/4))*np.exp(-1*(1/2)*t) , I(0)=1$ r=1, l=2")
     plt.show()
  
 
 x0 = 0
 y = 1
 x = 2
-h = 0.001
-rungeKutta1(x0, y, x, h)
-#rungeKutta2(x0,dydx(x0), x, h)
+h = (2/21)
+#rungeKutta1(x0, y, x, h)
+rungeKutta2(x0,dydx(x0), x, h)
 
 # This code is contributed by Prateek Bhindwar 
 
